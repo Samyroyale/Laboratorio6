@@ -41,6 +41,13 @@ public: // Methods
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void remove_empty_bodies();
+
+    void update_T();
+
+private: // Methods
+    void get_export_values();
+    void update_boxes();
 
 private slots: //slots
     void simulation();

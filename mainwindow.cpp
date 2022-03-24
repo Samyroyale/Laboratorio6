@@ -1,6 +1,105 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
+    ui->setupUi(this);
+
+    scene = new QGraphicsScene(this);
+    scene->setSceneRect(0, 0, ui->graphicsView->width() - 10, ui->graphicsView->height() - 10);
+    scene->setBackgroundBrush((QPixmap(":/square_blue.png").scaledToWidth(25)));
+
+    ui->graphicsView->setScene(scene);
+    ui->centralwidget->adjustSize();
+
+    T = ui->speed_slider->value();
+
+    save = false;
+
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(simulation()));
+}
+MainWindow::~MainWindow() {
+    delete timer;
+    delete scene;
+    delete ui;
+}
+
+void MainWindow::simulation(){
+
+    if(save){
+        for(int i = 0; i<bodies.size(); i++ )
+            txt_stream << std::to_string(bodies.at(i)->getX()).c_str() << "\t" << std::to_string(bodies.at(i)->getY()).c_str() <<"\t";
+        txt_stream << "\n";
+    }
+
+    for(int i=0; i<bodies.size(); i++ ){
+
+        bodies.at(i)->calculate_Ax(bodies);
+        bodies.at(i)->calculate_Ay(bodies);
+
+        bodies.at(i)->update(ui->graphicsView->width(), ui->graphicsView->height());
+        bodies.at(i)->label->setGeometry(bodies.at(i)->new_x(bodies.at(i)->getLabelX(), ui->graphicsView->width() - 10), bodies.at(i)->new_y(bodies.at(i)->getLabelY(), ui->graphicsView->height() - 10), bodies.at(i)->getName().length()*8, 10);
+    }
+}
+
+void MainWindow::remove_empty_bodies() {
+    QList <Body *> aux;
+
+    for(int k = 0; k<bodies.size(); k++)
+        if(!bodies.at(k)->is_empty())
+            aux.push_back(bodies.at(k));
+
+    bodies = aux;
+}
+void MainWindow::update_T() {
+    T = ui->speed_slider->value();
+}
+
+void MainWindow::get_export_values() {
+    txt_stream <<  std::to_string(ui->x_box_1->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->y_box_1->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->m_box_1->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->r_box_1->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->vx_box_1->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->vy_box_1->value()).c_str() << '\t';
+    txt_stream << "\n";
+    txt_stream <<  std::to_string(ui->x_box_2->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->y_box_2->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->m_box_2->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->r_box_2->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->vx_box_2->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->vy_box_2->value()).c_str() << '\t';
+    txt_stream << "\n";
+    txt_stream <<  std::to_string(ui->x_box_3->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->y_box_3->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->m_box_3->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->r_box_3->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->vx_box_3->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->vy_box_3->value()).c_str() << '\t';
+    txt_stream << "\n";
+    txt_stream <<  std::to_string(ui->x_box_4->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->y_box_4->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->m_box_4->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->r_box_4->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->vx_box_4->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->vy_box_4->value()).c_str() << '\t';
+    txt_stream << "\n";
+    txt_stream <<  std::to_string(ui->x_box_5->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->y_box_5->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->m_box_5->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->r_box_5->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->vx_box_5->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->vy_box_5->value()).c_str() << '\t';
+    txt_stream << "\n";
+    txt_stream <<  std::to_string(ui->x_box_6->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->y_box_6->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->m_box_6->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->r_box_6->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->vx_box_6->value()).c_str() << '\t';
+    txt_stream <<  std::to_string(ui->vy_box_6->value()).c_str() << '\t';
+    txt_stream << "\n";
+}
+
 void MainWindow::update_boxes() {
     ui->x_box_1->update();
     ui->y_box_1->update();
@@ -113,6 +212,64 @@ void MainWindow::on_start_button_clicked() {
         update_T();
         timer->start(T);
     }
+}
+void MainWindow::on_pause_button_clicked() {
+    timer->stop();
+    ui->pause_button->setEnabled(false);
+    if(!ui->resume_button->isEnabled())
+        ui->resume_button->setEnabled(true);
+}
+void MainWindow::on_resume_button_clicked() {
+    if(!ui->pause_button->isEnabled()){
+        timer->start(T);
+        ui->resume_button->setEnabled(false);
+        if(!ui->pause_button->isEnabled())
+            ui->pause_button->setEnabled(true);
+    }
+
+}
+void MainWindow::on_stop_button_clicked() {
+    timer->stop();
+    ui->pause_button->setEnabled(false);
+    ui->resume_button->setEnabled(false);
+
+    if(file.isOpen()){
+        file.flush();
+        file.close();
+        ui->save_label->setText("Saved succesfully");
+    }
+}
+void MainWindow::on_help_button_clicked() {
+    QString txt;
+    txt = "To save a file click on the CheckBox and then hit \"Start Simulation\"; a window asking for a file name and path will appear. As soon as you hit the \"Save\" button the simulation will start. "
+            "When you hit the \"Stop Simulation\" button or the \"Start Simulaton\" button the file will be closed and thus, saved.";
+
+    QMessageBox::about(this, "Help", txt);
+}
+void MainWindow::on_Export_button_clicked() {
+
+    file_name = QFileDialog::getSaveFileName(this, "Save", "", "Text file (*.txt)");
+
+    if(file_name.isEmpty())
+        return;
+
+    file.setFileName(file_name);
+
+    file.open(QIODevice::WriteOnly | QIODevice::Text);
+
+    if(!file.isOpen()){
+        QMessageBox::critical(this, "Error", file.errorString());
+        return;
+    }
+
+    txt_stream.setDevice(&file);
+
+    get_export_values();
+
+    file.flush();
+    file.close();
+
+    ui->save_label->setText("Exported correctly");
 }
 void MainWindow::on_Import_button_clicked() {
 
