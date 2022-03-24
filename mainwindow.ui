@@ -6,15 +6,919 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1018</width>
+    <height>880</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QWidget" name="centralwidget">
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>229</y>
+      <width>1000</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>819</width>
+      <height>222</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QHBoxLayout" name="inputs_frame">
+       <item>
+        <layout class="QVBoxLayout" name="name_frame">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetDefaultConstraint</enum>
+         </property>
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="name_label">
+           <property name="text">
+            <string>Body name</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="name_box_1">
+           <property name="text">
+            <string notr="true">1</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="name_box_2">
+           <property name="text">
+            <string>2</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="name_box_3">
+           <property name="text">
+            <string>3</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="name_box_4">
+           <property name="text">
+            <string>4</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="name_box_5">
+           <property name="text">
+            <string>5</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="name_box_6">
+           <property name="text">
+            <string>6</string>
+           </property>
+           <property name="frame">
+            <bool>true</bool>
+           </property>
+           <property name="cursorPosition">
+            <number>1</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="color_frame">
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="color_label">
+           <property name="text">
+            <string>Color</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="color_1">
+           <item>
+            <property name="text">
+             <string>Yellow</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Blue</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Red</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Magenta</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Green</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Black</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="color_2">
+           <item>
+            <property name="text">
+             <string>Blue</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Yellow</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Red</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Magenta</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Green</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Black</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="color_3">
+           <item>
+            <property name="text">
+             <string>Red</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Yellow</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Blue</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Magenta</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Green</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Black</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="color_4">
+           <item>
+            <property name="text">
+             <string>Magenta</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Yellow</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Blue</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Red</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Green</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Black</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="color_5">
+           <item>
+            <property name="text">
+             <string>Green</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Yellow</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Blue</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Red</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Magenta</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Black</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="color_6">
+           <item>
+            <property name="text">
+             <string>Black</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Yellow</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Blue</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Red</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Magenta</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Green</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="x_frame">
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="x_label">
+           <property name="text">
+            <string>X initial</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="x_box_1">
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="x_box_2">
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="x_box_3">
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="x_box_4">
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="x_box_5">
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="x_box_6">
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="y_frame">
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="y_label">
+           <property name="text">
+            <string>Y inital</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="y_box_1">
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="y_box_2">
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="y_box_3">
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="y_box_4">
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="y_box_5">
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="y_box_6">
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="m_frame">
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="m_label">
+           <property name="text">
+            <string>Mass</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="m_box_1">
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="m_box_2">
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="m_box_3">
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="m_box_4">
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="m_box_5">
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="m_box_6">
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="r_frame">
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="r_label">
+           <property name="text">
+            <string>Radious</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="r_box_1">
+           <property name="maximum">
+            <number>99999999</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="r_box_2">
+           <property name="maximum">
+            <number>99999999</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="displayIntegerBase">
+            <number>10</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="r_box_3">
+           <property name="maximum">
+            <number>99999999</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="r_box_4">
+           <property name="maximum">
+            <number>99999999</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="r_box_5">
+           <property name="maximum">
+            <number>99999999</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="r_box_6">
+           <property name="maximum">
+            <number>99999999</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="vx_frame">
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="vx_label">
+           <property name="text">
+            <string>Inital Vx</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="vx_box_1">
+           <property name="minimum">
+            <double>-999999.989999999990687</double>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="vx_box_2">
+           <property name="minimum">
+            <double>-999999.989999999990687</double>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="vx_box_3">
+           <property name="minimum">
+            <double>-999999.989999999990687</double>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="vx_box_4">
+           <property name="minimum">
+            <double>-999999.989999999990687</double>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="vx_box_5">
+           <property name="minimum">
+            <double>-999999.989999999990687</double>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="vx_box_6">
+           <property name="minimum">
+            <double>-999999.989999999990687</double>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="vy_frame">
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="vy_label">
+           <property name="text">
+            <string>Inital Vy</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="vy_box_1">
+           <property name="minimum">
+            <double>-999999.989999999990687</double>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="vy_box_2">
+           <property name="minimum">
+            <double>-999999.989999999990687</double>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="vy_box_3">
+           <property name="minimum">
+            <double>-999999.989999999990687</double>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="vy_box_4">
+           <property name="minimum">
+            <double>-999999.989999999990687</double>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="vy_box_5">
+           <property name="minimum">
+            <double>-999999.989999999990687</double>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="vy_box_6">
+           <property name="minimum">
+            <double>-999999.989999999990687</double>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="speed_frame">
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="speed_label">
+           <property name="text">
+            <string>Simulation
+   Speed</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="speed_slider_frame">
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QSlider" name="speed_slider">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>20</number>
+             </property>
+             <property name="pageStep">
+              <number>1</number>
+             </property>
+             <property name="value">
+              <number>10</number>
+             </property>
+             <property name="sliderPosition">
+              <number>10</number>
+             </property>
+             <property name="tracking">
+              <bool>false</bool>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="invertedAppearance">
+              <bool>true</bool>
+             </property>
+             <property name="invertedControls">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="buttons_frame">
+       <item>
+        <widget class="QPushButton" name="start_button">
+         <property name="text">
+          <string notr="true">Start Simulation</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="stop_button">
+         <property name="text">
+          <string>Stop Simualtion</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pause_button">
+         <property name="text">
+          <string notr="true">Pause Simulation</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="resume_button">
+         <property name="text">
+          <string notr="true">Resume Simulation</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>60</y>
+      <width>141</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="save_layout">
+     <item>
+      <widget class="QPushButton" name="Export_button">
+       <property name="text">
+        <string>Export</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Import_button">
+       <property name="text">
+        <string>Import</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="save_label">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="save_box">
+       <property name="text">
+        <string>Save planet's positions?</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="help_button">
+       <property name="text">
+        <string>Help</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1018</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
