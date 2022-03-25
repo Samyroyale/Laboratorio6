@@ -6,7 +6,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     scene = new QGraphicsScene(this);
     scene->setSceneRect(0, 0, ui->graphicsView->width() - 10, ui->graphicsView->height() - 10);
-    scene->setBackgroundBrush((QPixmap(":/square_blue.png").scaledToWidth(25)));
+    scene->setBackgroundBrush((QPixmap(":/fondo_espacio.jpg")));
+
 
     ui->graphicsView->setScene(scene);
     ui->centralwidget->adjustSize();
@@ -101,6 +102,7 @@ void MainWindow::get_export_values() {
 }
 
 void MainWindow::update_boxes() {
+    //function boxes
     ui->x_box_1->update();
     ui->y_box_1->update();
     ui->m_box_1->update();
@@ -241,8 +243,7 @@ void MainWindow::on_stop_button_clicked() {
 }
 void MainWindow::on_help_button_clicked() {
     QString txt;
-    txt = "To save a file click on the CheckBox and then hit \"Start Simulation\"; a window asking for a file name and path will appear. As soon as you hit the \"Save\" button the simulation will start. "
-            "When you hit the \"Stop Simulation\" button or the \"Start Simulaton\" button the file will be closed and thus, saved.";
+    txt = "ayuda";
 
     QMessageBox::about(this, "Help", txt);
 }
@@ -454,3 +455,4 @@ void MainWindow::on_Import_button_clicked() {
          ui->save_label->setText("Error importing");
      }
 }
+
